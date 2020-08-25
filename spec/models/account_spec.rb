@@ -5,18 +5,19 @@ RSpec.describe Account, type: :model do
 
   describe 'validations' do
     describe 'presence' do
-      it { is_expected.to validate_presence_of(:id) }
-      it { is_expected.to validate_presence_of(:name) }
+      it { is_expected.to validate_presence_of(:account_number) }
+      it { is_expected.to validate_presence_of(:account_name) }
       it { is_expected.to validate_presence_of(:balance) }
       it { is_expected.to validate_presence_of(:token) }
     end
 
     describe 'uniqueness' do
-      it { is_expected.to validate_uniqueness_of(:id) }
+      it { is_expected.to validate_uniqueness_of(:account_number) }
       it { is_expected.to validate_uniqueness_of(:token) }
     end
 
     describe 'numericality' do
+      it { is_expected.to validate_numericality_of(:account_number).only_integer }
       it { is_expected.to validate_numericality_of(:balance).only_integer }
     end
   end
