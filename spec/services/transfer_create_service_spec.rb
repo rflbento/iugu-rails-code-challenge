@@ -10,7 +10,7 @@ RSpec.describe TransferCreateService do
             :account,
             account_number: 456,
             account_name: 'Silvio Santos',
-            balance: 10_000,
+            initial_balance: 10_000,
             token: 'SiLvIoDuMMyToKeN'
           )
 
@@ -31,7 +31,7 @@ RSpec.describe TransferCreateService do
             :account,
             account_number: 456,
             account_name: 'Silvio Santos',
-            balance: 10_000,
+            initial_balance: 10_000,
             token: 'SiLvIoDuMMyToKeN'
           )
 
@@ -54,7 +54,7 @@ RSpec.describe TransferCreateService do
             :account,
             account_number: 456,
             account_name: 'Silvio Santos',
-            balance: 10_000,
+            initial_balance: 10_000,
             token: 'SiLvIoDuMMyToKeN'
           )
 
@@ -103,6 +103,30 @@ RSpec.describe TransferCreateService do
         end.not_to change { destiny_account.transfers.reload.count }
       end
     end
+
+    context 'quando o saldo da conta de origem é insuficiente' do
+      it 'NÃO cria transferências para nenhuma das contas' do
+        source_account = create(:account, initial_balance: 5000)
+        destiny_account = create(
+          :account,
+          account_number: 456,
+          account_name: 'Silvio Santos',
+          initial_balance: 10_000,
+          token: 'SiLvIoDuMMyToKeN'
+        )
+
+        source_id = source_account.account_number
+        destiny_id = destiny_account.account_number
+        amount = 6000
+
+        described_class.new(
+          source_id: source_id, destiny_id: destiny_id, amount: amount
+        ).create
+
+        expect(source_account.transfers.reload.count).to be_zero
+        expect(destiny_account.transfers.reload.count).to be_zero
+      end
+    end
   end
 
   describe '.create' do
@@ -112,7 +136,7 @@ RSpec.describe TransferCreateService do
         :account,
         account_number: 456,
         account_name: 'Silvio Santos',
-        balance: 10_000,
+        initial_balance: 10_000,
         token: 'SiLvIoDuMMyToKeN'
       )
 

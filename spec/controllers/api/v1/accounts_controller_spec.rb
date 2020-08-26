@@ -5,7 +5,7 @@ RSpec.describe Api::V1::AccountsController, type: :controller do
     account_params = {
       account_number: 1994,
       account_name: 'John Doe',
-      balance: 50_035
+      initial_balance: 50_035
     }
 
     request.headers['Content-Type'] = 'application/json'
@@ -34,7 +34,7 @@ RSpec.describe Api::V1::AccountsController, type: :controller do
         account_params = {
           account_number: 123,
           account_name: 'Bob Marley',
-          balance: 30_053
+          initial_balance: 30_053
         }
 
         request.headers['Content-Type'] = 'application/json'

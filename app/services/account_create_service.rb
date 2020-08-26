@@ -1,12 +1,12 @@
 class AccountCreateService
   ACCOUNT_NUMBER_ALREADY_EXISTS = 'Este ID de conta já foi utilizado.'.freeze
 
-  attr_reader :account_number, :account_name, :balance
+  attr_reader :account_number, :account_name, :initial_balance
 
-  def initialize(account_number:, account_name:, balance:)
+  def initialize(account_number:, account_name:, initial_balance:)
     @account_number = account_number
     @account_name = account_name
-    @balance = balance
+    @initial_balance = initial_balance
   end
 
   def self.create(...)
@@ -29,7 +29,7 @@ class AccountCreateService
     new_account = Account.new(
       account_number: unique_account_number,
       account_name: account_name,
-      balance: balance,
+      initial_balance: initial_balance,
       token: generate_token
     )
 

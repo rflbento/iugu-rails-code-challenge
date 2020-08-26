@@ -11,7 +11,7 @@ RSpec.describe Account, type: :model do
     describe 'presence' do
       it { is_expected.to validate_presence_of(:account_number) }
       it { is_expected.to validate_presence_of(:account_name) }
-      it { is_expected.to validate_presence_of(:balance) }
+      it { is_expected.to validate_presence_of(:initial_balance) }
       it { is_expected.to validate_presence_of(:token) }
     end
 

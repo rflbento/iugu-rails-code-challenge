@@ -3,13 +3,15 @@ require 'rails_helper'
 RSpec.describe AccountCreateService do
   subject do
     described_class.new(
-      account_number: account_number, account_name: account_name, balance: balance
+      account_number: account_number,
+      account_name: account_name,
+      initial_balance: initial_balance
     )
   end
 
   let(:account_number) { 77 }
   let(:account_name) { 'João Alves' }
-  let(:balance) { 300_025 }
+  let(:initial_balance) { 300_025 }
 
   describe '#create' do
     context 'quando o usuário informa todos os dados da forma correta' do
@@ -21,7 +23,7 @@ RSpec.describe AccountCreateService do
         expect(account).to be_persisted
         expect(account.account_number).to eq(77)
         expect(account.account_name).to eq('João Alves')
-        expect(account.balance).to eq(300_025)
+        expect(account.initial_balance).to eq(300_025)
         expect(account.token).not_to be_nil
       end
 
@@ -41,7 +43,7 @@ RSpec.describe AccountCreateService do
     context 'quando o usuário NÃO informa o ID da conta' do
       let(:account_number) { nil }
       let(:account_name) { 'Usuário sem ID de conta' }
-      let(:balance) { 40_097 }
+      let(:initial_balance) { 40_097 }
 
       let!(:old_account) { create(:account) }
       let!(:last_account) { Account.last }
@@ -54,7 +56,7 @@ RSpec.describe AccountCreateService do
         expect(new_account).to be_persisted
         expect(new_account.account_number).not_to eq(old_account.account_number)
         expect(new_account.account_name).to eq('Usuário sem ID de conta')
-        expect(new_account.balance).to eq(40_097)
+        expect(new_account.initial_balance).to eq(40_097)
         expect(new_account.token).not_to be_nil
 
         expect(new_account.account_number).to eq("#{last_account.account_number}1".to_i)
@@ -64,7 +66,7 @@ RSpec.describe AccountCreateService do
     context 'quando o usuário informa um ID de conta já existente' do
       let(:account_number) { 1010 }
       let(:account_name) { 'Usuário sem ID de conta' }
-      let(:balance) { 40_097 }
+      let(:initial_balance) { 40_097 }
 
       let!(:old_account) { create(:account, account_number: 1010) }
 
@@ -90,7 +92,7 @@ RSpec.describe AccountCreateService do
       expect(described_class).to receive(:new).with(
         account_number: account_number,
         account_name: account_name,
-        balance: balance
+        initial_balance: initial_balance
       ).once.and_return(service)
 
       expect(service).to receive(:create).and_return(account)
@@ -99,7 +101,7 @@ RSpec.describe AccountCreateService do
         described_class.create(
           account_number: account_number,
           account_name: account_name,
-          balance: balance
+          initial_balance: initial_balance
         )
       ).to eq(account)
     end

@@ -4,12 +4,12 @@ module Api
       def create
         account_number = account_params[:account_number]
         account_name = account_params[:account_name]
-        balance = account_params[:balance]
+        initial_balance = account_params[:initial_balance]
 
         service_response = AccountCreateService.new(
           account_number: account_number,
           account_name: account_name,
-          balance: balance
+          initial_balance: initial_balance
         ).create
 
         render json: service_response
@@ -18,7 +18,9 @@ module Api
       private
 
       def account_params
-        params.require(:account).permit(:account_number, :account_name, :balance)
+        params.require(:account).permit(:account_number,
+                                        :account_name,
+                                        :initial_balance)
       end
     end
   end
