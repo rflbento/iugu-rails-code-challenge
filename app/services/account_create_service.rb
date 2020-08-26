@@ -24,7 +24,7 @@ class AccountCreateService
   end
 
   def create_account
-    return ACCOUNT_NUMBER_ALREADY_EXISTS if account.present?
+    return error_response_body(ACCOUNT_NUMBER_ALREADY_EXISTS) if account.present?
 
     new_account = Account.new(
       account_number: unique_account_number,
@@ -35,7 +35,7 @@ class AccountCreateService
 
     new_account.save if new_account.valid?
 
-    new_account
+    success_response_body(new_account)
   end
 
   def generate_token
@@ -50,5 +50,18 @@ class AccountCreateService
     max_account_number = Account.maximum(:account_number)
 
     max_account_number.nil? ? 1 : "#{max_account_number}1".to_i
+  end
+
+  def success_response_body(account)
+    {
+      account_number: account.account_number,
+      token: account.token
+    }
+  end
+
+  def error_response_body(message)
+    {
+      error: message
+    }
   end
 end
