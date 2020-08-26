@@ -14,7 +14,7 @@ class TransferCreateService
   def create
     return unless amount.positive?
     return if missing_account?
-    return if enough_balance?
+    return unless enough_balance?
 
     create_transfers
   end
