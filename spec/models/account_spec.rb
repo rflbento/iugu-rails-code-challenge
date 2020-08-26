@@ -4,6 +4,10 @@ RSpec.describe Account, type: :model do
   subject { create(:account) }
 
   describe 'validations' do
+    describe 'association' do
+      it { is_expected.to have_many(:transfers) }
+    end
+
     describe 'presence' do
       it { is_expected.to validate_presence_of(:account_number) }
       it { is_expected.to validate_presence_of(:account_name) }

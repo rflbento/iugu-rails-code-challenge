@@ -1,6 +1,8 @@
 class Account < ApplicationRecord
   has_secure_token
 
+  has_many :transfers, dependent: :nullify
+
   validates :account_number,
             presence: true,
             numericality: { only_integer: true },
