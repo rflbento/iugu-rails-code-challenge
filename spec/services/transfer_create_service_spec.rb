@@ -71,6 +71,38 @@ RSpec.describe TransferCreateService do
         end
       end
     end
+
+    context 'quando a conta de destino não é encontrada' do
+      it 'NÃO cria transferências para nenhuma das contas' do
+        source_account = create(:account)
+
+        source_id = source_account.account_number
+        destiny_id = 5568
+        amount = 4000
+
+        expect do
+          described_class.new(
+            source_id: source_id, destiny_id: destiny_id, amount: amount
+          ).create
+        end.not_to change { source_account.transfers.reload.count }
+      end
+    end
+
+    context 'quando a conta de origem não é encontrada' do
+      it 'NÃO cria transferências para nenhuma das contas' do
+        destiny_account = create(:account)
+
+        source_id = 8896
+        destiny_id = destiny_account.account_number
+        amount = 4000
+
+        expect do
+          described_class.new(
+            source_id: source_id, destiny_id: destiny_id, amount: amount
+          ).create
+        end.not_to change { destiny_account.transfers.reload.count }
+      end
+    end
   end
 
   describe '.create' do

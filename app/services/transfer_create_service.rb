@@ -13,6 +13,7 @@ class TransferCreateService
 
   def create
     return unless amount.positive?
+    return if missing_account?
 
     create_transfers
   end
@@ -33,5 +34,9 @@ class TransferCreateService
 
       destiny_account.transfers.create(amount: amount)
     end
+  end
+
+  def missing_account?
+    source_account.blank? || destiny_account.blank?
   end
 end
