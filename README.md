@@ -24,7 +24,7 @@ Este repositório foi criado para propor a solução do seguinte desafio: [Desaf
 ## Como testar as features localmente
 **Antes de executar os passos a seguir, após fazer o mencionado acima, deve entrar na rails do projeto e executar o seguinte comando:** `rails server`
 
-No seu terminal você deve executar o comando `curl` passando pos parâmetros necessários para que o seu computador faça uma requisição em uma URI que você vai informar também como parâmetro da do `curl`. Abaixo, exempols para que todas as features sejam testadas.
+No seu terminal você deve executar o comando `curl` passando pos parâmetros necessários para que o seu computador faça uma requisição em uma URI que você vai informar também como parâmetro da do `curl`. Abaixo, exemplos para que todas as features sejam testadas.
 
 1. Criar uma conta informando um ID:
 ```
@@ -85,14 +85,14 @@ curl --location --request POST 'http://localhost:3000/api/v1/transfers' \
 }'
 ```
 
-6. Consulta de saldo:
+6. Consulta de saldo (o ID da conta que o usuário escolheu deve estar na URI):
 ```
 curl --location --request GET 'http://localhost:3000/api/v1/accounts/46623/balance' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json'
 ```
 
-7. Conta não encontrada:
+7. Conta não encontrada (o ID da conta que o usuário escolheu deve estar na URI):
 ```
 curl --location --request GET 'http://localhost:3000/api/v1/accounts/123/balance' \
 --header 'Accept: application/json' \
