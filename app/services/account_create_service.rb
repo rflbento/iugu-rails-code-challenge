@@ -1,6 +1,4 @@
 class AccountCreateService
-  ACCOUNT_NUMBER_ALREADY_EXISTS = 'Este ID de conta já foi utilizado.'.freeze
-
   attr_reader :account_number, :account_name, :initial_balance
 
   def initialize(account_number:, account_name:, initial_balance:)
@@ -19,13 +17,7 @@ class AccountCreateService
 
   private
 
-  def account
-    @account ||= Account.find_by(account_number: account_number)
-  end
-
   def create_account
-    return error_response_body(ACCOUNT_NUMBER_ALREADY_EXISTS) if account.present?
-
     new_account = Account.create(
       account_number: unique_account_number,
       account_name: account_name,
@@ -47,12 +39,6 @@ class AccountCreateService
 
     max_account_number = Account.maximum(:account_number)
 
-    max_account_number.nil? ? 1 : "#{max_account_number}1".to_i
-  end
-
-  def error_response_body(message)
-    {
-      error: message
-    }
+    max_account_number.nil? ? 1 : max_account_number + 1
   end
 end

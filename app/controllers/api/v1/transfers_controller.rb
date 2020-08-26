@@ -2,13 +2,13 @@ module Api
   module V1
     class TransfersController < ApplicationController
       def create
-        service_response = TransferCreateService.new(
+        transfer_service = TransferCreateService.new(
           source_id: transfer_params[:source_id],
           destiny_id: transfer_params[:destiny_id],
           amount: transfer_params[:amount]
         )
 
-        if service_response.create
+        if transfer_service.create
           render json: { message: 'Transferência realizada com sucesso!' },
                  status: :created
         else

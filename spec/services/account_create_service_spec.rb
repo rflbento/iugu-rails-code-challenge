@@ -29,7 +29,7 @@ RSpec.describe AccountCreateService do
         new_account = described_class.new(**account_params).create
         old_account_number = old_account.account_number
 
-        expect(new_account.account_number).to eq("#{old_account_number}1".to_i)
+        expect(new_account.account_number).to eq(old_account_number + 1)
       end
     end
 

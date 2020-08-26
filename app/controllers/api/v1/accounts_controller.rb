@@ -2,17 +2,22 @@ module Api
   module V1
     class AccountsController < ApplicationController
       def create
-        service_response = AccountCreateService.new(
+        account = AccountCreateService.new(
           account_number: account_params[:account_number],
           account_name: account_params[:account_name],
           initial_balance: account_params[:initial_balance]
-        )
+        ).create
 
-        if service_response.create
-          render json: { message: 'Transferência realizada com sucesso!' },
-                 status: :created
+        if account.persisted?
+          render(
+            json: {
+              account_number: account.account_number,
+              token: account.token
+            },
+            status: :created
+          )
         else
-          render json: { message: 'Transferência rejeitada!' },
+          render json: { message: account.errors.messages.values.join(', ') },
                  status: :unprocessable_entity
         end
       end

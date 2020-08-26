@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        account:
+          attributes:
+            account_number:
+              taken: Este ID de conta já foi utilizado.

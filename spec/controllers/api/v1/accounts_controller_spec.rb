@@ -1,54 +1,72 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::AccountsController, type: :controller do
-  before do
-    account_params = {
-      account_number: 1994,
-      account_name: 'John Doe',
-      initial_balance: 50_035
-    }
-
-    request.headers['Content-Type'] = 'application/json'
-    request.headers['Accept'] = 'application/json'
-
-    post :create,
-         params: account_params
-  end
-
   describe 'POST /api/v1/accounts' do
-    it 'retorna status code 200' do
-      expect(response.status).to eq(200)
-    end
-
     context 'quando usuário informa ID de conta ainda não utilizado' do
-      it 'renderiza mensagem com os dados' do
-        expect(JSON.parse(response.body)['account_number']).to eq(1994)
+      it 'retorna status code 201' do
+        account_params = {
+          account_number: 123,
+          account_name: 'Martinho da Vila',
+          initial_balance: 10_000
+        }
+
+        create_account_request(account_params)
+
+        expect(response.status).to eq(201)
+      end
+
+      it 'renderiza mensagem com os dados da conta' do
+        account_params = {
+          account_number: 123,
+          account_name: 'Martinho da Vila',
+          initial_balance: 10_000
+        }
+
+        create_account_request(account_params)
+
+        expect(JSON.parse(response.body)['account_number']).to eq(123)
         expect(JSON.parse(response.body)['token']).not_to be_nil
       end
     end
 
     context 'quando usuário informa ID de já existente' do
-      before do
-        create(:account)
+      it 'retorna status code 422' do
+        create(:account, account_number: 123)
 
         account_params = {
           account_number: 123,
-          account_name: 'Bob Marley',
-          initial_balance: 30_053
+          account_name: 'Martinho da Vila',
+          initial_balance: 10_000
         }
 
-        request.headers['Content-Type'] = 'application/json'
-        request.headers['Accept'] = 'application/json'
+        create_account_request(account_params)
 
-        post :create,
-             params: account_params
+        expect(response.status).to eq(422)
       end
 
       it 'renderiza mensagem de erro' do
-        expect(JSON.parse(response.body)['error']).to eq(
-          'Este ID de conta já foi utilizado.'
-        )
+        create(:account, account_number: 123)
+
+        account_params = {
+          account_number: 123,
+          account_name: 'Martinho da Vila',
+          initial_balance: 10_000
+        }
+
+        create_account_request(account_params)
+
+        message = 'Este ID de conta já foi utilizado.'
+
+        expect(JSON.parse(response.body)['message']).to eq(message)
       end
     end
+  end
+
+  def create_account_request(account_params)
+    request.headers['Content-Type'] = 'application/json'
+    request.headers['Accept'] = 'application/json'
+
+    post :create,
+         params: account_params
   end
 end
