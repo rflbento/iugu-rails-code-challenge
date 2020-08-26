@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-25T21:27:52-03:00">2020-08-25T21:27:52-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-08-25T22:46:52-03:00">2020-08-25T22:46:52-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.13
+         2.14
        </span>
     </span> hits/line
     )
@@ -39,12 +39,12 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>21</b> files in total.
+    <b>24</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>175</b> relevant lines,
-    <span class="green"><b>175</b> lines covered</span> and
+    <b>194</b> relevant lines,
+    <span class="green"><b>194</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#d1c65c2f51b617053eb93ace993a39d16236f7c3" class="src_link" title="app/controllers/api/v1/accounts_controller.rb">app/controllers/api/v1/accounts_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">21</td>
-            <td class="cell--number">10</td>
-            <td class="cell--number">10</td>
+            <td class="cell--number">25</td>
+            <td class="cell--number">12</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.60</td>
+            <td class="cell--number">3.17</td>
             
           </tr>
         
@@ -109,6 +109,17 @@
             <td class="cell--number">3</td>
             <td class="cell--number">2</td>
             <td class="cell--number">2</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#dc7dc725de55d966d398e3695eecba61b443e92b" class="src_link" title="app/models/transfer.rb">app/models/transfer.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">3</td>
+            <td class="cell--number">3</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -264,7 +275,18 @@
             <td class="cell--number">6</td>
             <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">8.67</td>
+            <td class="cell--number">10.67</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#d32696c5c6e45d6fbb13bbc4a9dfc36fab8c8de0" class="src_link" title="spec/factories/transfers.rb">spec/factories/transfers.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">2.50</td>
             
           </tr>
         
@@ -276,6 +298,17 @@
             <td class="cell--number">15</td>
             <td class="cell--number">0</td>
             <td class="cell--number">2.07</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#c7ab4e3203714cfde86f5f6c504ce1f1f4bcdd30" class="src_link" title="spec/models/transfer_spec.rb">spec/models/transfer_spec.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">19</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.60</td>
             
           </tr>
         
@@ -332,8 +365,8 @@
     
 
     <div class="t-line-summary">
-      <b>10</b> relevant lines.
-      <span class="green"><b>10</b> lines covered</span> and
+      <b>12</b> relevant lines.
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -351,7 +384,7 @@
 
             
 
-            <code class="ruby">class Api::V1::AccountsController &lt; ApplicationController</code>
+            <code class="ruby">module Api</code>
           </li>
         </div>
       
@@ -362,29 +395,29 @@
 
             
 
-            <code class="ruby">  def create</code>
+            <code class="ruby">  module V1</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="3">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    account_number = account_params[:account_number]</code>
+            <code class="ruby">    class AccountsController &lt; ApplicationController</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="4">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    account_name = account_params[:account_name]</code>
+            <code class="ruby">      def create</code>
           </li>
         </div>
       
@@ -395,18 +428,18 @@
 
             
 
-            <code class="ruby">    balance = account_params[:balance]</code>
+            <code class="ruby">        account_number = account_params[:account_number]</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="6">
+            <span class="hits">4</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        account_name = account_params[:account_name]</code>
           </li>
         </div>
       
@@ -417,7 +450,7 @@
 
             
 
-            <code class="ruby">    service_response = AccountCreateService.new(</code>
+            <code class="ruby">        balance = account_params[:balance]</code>
           </li>
         </div>
       
@@ -428,18 +461,18 @@
 
             
 
-            <code class="ruby">      account_number: account_number,</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="9">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">      account_name: account_name,</code>
+            
+
+            <code class="ruby">        service_response = AccountCreateService.new(</code>
           </li>
         </div>
       
@@ -450,7 +483,7 @@
 
             
 
-            <code class="ruby">      balance: balance</code>
+            <code class="ruby">          account_number: account_number,</code>
           </li>
         </div>
       
@@ -461,7 +494,7 @@
 
             
 
-            <code class="ruby">    ).create</code>
+            <code class="ruby">          account_name: account_name,</code>
           </li>
         </div>
       
@@ -472,18 +505,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">          balance: balance</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="13">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="13">
+            
             
 
             
 
-            <code class="ruby">    render json: service_response</code>
+            <code class="ruby">        ).create</code>
           </li>
         </div>
       
@@ -494,29 +527,29 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="16">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="4" data-linenumber="15">
+            <span class="hits">4</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">        render json: service_response</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -538,23 +571,67 @@
 
             
 
-            <code class="ruby">  def account_params</code>
+            <code class="ruby">      private</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      def account_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="12" data-linenumber="21">
             <span class="hits">12</span>
             
 
             
 
-            <code class="ruby">    params.require(:account).permit(:account_number, :account_name, :balance)</code>
+            <code class="ruby">        params.require(:account).permit(:account_number, :account_name, :balance)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
+          <li class="never" data-hits="" data-linenumber="22">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
             
             
 
@@ -565,7 +642,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="25">
             
             
 
@@ -835,6 +912,114 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="dc7dc725de55d966d398e3695eecba61b443e92b">
+  <div class="header">
+    <h3>app/models/transfer.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>3</b> relevant lines.
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class Transfer &lt; ApplicationRecord</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  belongs_to :account</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  validates :amount,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">            presence: true,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby">            numericality: { only_integer: true }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
@@ -4084,8 +4269,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="11" data-linenumber="3">
-            <span class="hits">11</span>
+          <li class="covered" data-hits="14" data-linenumber="3">
+            <span class="hits">14</span>
             
 
             
@@ -4095,8 +4280,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="13" data-linenumber="4">
-            <span class="hits">13</span>
+          <li class="covered" data-hits="16" data-linenumber="4">
+            <span class="hits">16</span>
             
 
             
@@ -4106,8 +4291,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="13" data-linenumber="5">
-            <span class="hits">13</span>
+          <li class="covered" data-hits="16" data-linenumber="5">
+            <span class="hits">16</span>
             
 
             
@@ -4117,8 +4302,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="13" data-linenumber="6">
-            <span class="hits">13</span>
+          <li class="covered" data-hits="16" data-linenumber="6">
+            <span class="hits">16</span>
             
 
             
@@ -4140,6 +4325,103 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="d32696c5c6e45d6fbb13bbc4a9dfc36fab8c8de0">
+  <div class="header">
+    <h3>spec/factories/transfers.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">FactoryBot.define do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  factory :transfer do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="3">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    account { create(:account) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="4">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">    amount { 1000 }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
             
             
 
@@ -4435,6 +4717,246 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="c7ab4e3203714cfde86f5f6c504ce1f1f4bcdd30">
+  <div class="header">
+    <h3>spec/models/transfer_spec.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>10</b> relevant lines.
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">require &#39;rails_helper&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">RSpec.describe Transfer, type: :model do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="4">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">  subject { create(:transfer) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  describe &#39;validations&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    describe &#39;association&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="8">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { is_expected.to belong_to(:account) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    describe &#39;presence&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="12">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { is_expected.to validate_presence_of(:amount) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    describe &#39;numericality&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      it { is_expected.to validate_numericality_of(:amount).only_integer }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 

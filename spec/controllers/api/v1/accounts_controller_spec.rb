@@ -12,7 +12,7 @@ RSpec.describe Api::V1::AccountsController, type: :controller do
     request.headers['Accept'] = 'application/json'
 
     post :create,
-      params: account_params
+         params: account_params
   end
 
   describe 'POST /api/v1/accounts' do
@@ -41,8 +41,9 @@ RSpec.describe Api::V1::AccountsController, type: :controller do
         request.headers['Accept'] = 'application/json'
 
         post :create,
-          params: account_params
+             params: account_params
       end
+
       it 'renderiza mensagem de erro' do
         expect(JSON.parse(response.body)['error']).to eq(
           'Este ID de conta já foi utilizado.'

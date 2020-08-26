@@ -226,10 +226,20 @@
         "lines": [
           1,
           1,
-          11,
-          13,
-          13,
-          13,
+          14,
+          16,
+          16,
+          16,
+          null,
+          null
+        ]
+      },
+      "/home/bento/Área de Trabalho/iugu-rails-code-challenge/spec/factories/transfers.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          4,
           null,
           null
         ]
@@ -258,6 +268,8 @@
         "lines": [
           1,
           1,
+          1,
+          1,
           4,
           4,
           4,
@@ -275,6 +287,8 @@
           null,
           1,
           12,
+          null,
+          null,
           null,
           null
         ]
@@ -332,6 +346,40 @@
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "/home/bento/Área de Trabalho/iugu-rails-code-challenge/spec/models/transfer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          4,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/bento/Área de Trabalho/iugu-rails-code-challenge/app/models/transfer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -518,6 +566,6 @@
         ]
       }
     },
-    "timestamp": 1598401672
+    "timestamp": 1598406412
   }
 }
