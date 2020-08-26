@@ -12,9 +12,9 @@ class TransferCreateService
   end
 
   def create
-    return unless amount.positive?
-    return if missing_account?
-    return unless enough_balance?
+    return false unless amount.positive?
+    return false if missing_account?
+    return false unless enough_balance?
 
     create_transfers
   end
