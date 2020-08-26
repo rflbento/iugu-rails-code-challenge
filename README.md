@@ -7,7 +7,7 @@ Este repositório foi criado para propor a solução do seguinte desafio: [Desaf
 - Banco de Dados: MySQL (v 14.14 Distrib 5.7.31)
 ---
 ## Para conseguir executar este projeto, você deve:
-1. Possuir o Ruby instalado na sua máquina (versão utilizada neste projeto, de preferência), assim como as outras dependências citadas em [Informações técnicas](https://github.com/bentinhorafa/iugu-ruby-code-challenge#tech_info);
+1. Possuir o Ruby instalado na sua máquina (versão utilizada neste projeto, de preferência), assim como as outras dependências citadas em [Informações técnicas](https://github.com/bentinhorafa/iugu-rails-code-challenge#tech_info);
 2. Baixar este repositório com o comando abaixo:
 - `git clone git@github.com:bentinhorafa/iugu-rails-code-challenge.git`
 3. Na pasta raiz do projeto há o arquivo `.env.yml.sample`. Este sample é um modelo das variáveis de ambiente que você usará em seu projeto, portanto você deve:
