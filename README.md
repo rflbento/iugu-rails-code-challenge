@@ -31,6 +31,7 @@ No seu terminal você deve executar o comando `curl` passando pos parâmetros ne
 curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken' \
 --data-raw '{
   "account_number": 46623,
   "account_name": "John Doe",
@@ -43,6 +44,7 @@ curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken' \
 --data-raw '{
   "account_name": "Bob Marley",
   "initial_balance": 753612
@@ -54,6 +56,7 @@ curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken' \
 --data-raw '{
   "account_number": 46623,
   "account_name": "Beth Carvalho",
@@ -66,6 +69,7 @@ curl --location --request POST 'http://localhost:3000/api/v1/accounts' \
 curl --location --request POST 'http://localhost:3000/api/v1/transfers' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken' \
 --data-raw '{
   "source_id": 46623,
   "destiny_id": 46624,
@@ -78,6 +82,7 @@ curl --location --request POST 'http://localhost:3000/api/v1/transfers' \
 curl --location --request POST 'http://localhost:3000/api/v1/transfers' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken' \
 --data-raw '{
   "source_id": 46623,
   "destiny_id": 46624,
@@ -89,14 +94,16 @@ curl --location --request POST 'http://localhost:3000/api/v1/transfers' \
 ```
 curl --location --request GET 'http://localhost:3000/api/v1/accounts/46623/balance' \
 --header 'Accept: application/json' \
---header 'Content-Type: application/json'
+--header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken'
 ```
 
 7. Conta não encontrada (o ID da conta que o usuário escolheu deve estar na URI):
 ```
 curl --location --request GET 'http://localhost:3000/api/v1/accounts/123/balance' \
 --header 'Accept: application/json' \
---header 'Content-Type: application/json'
+--header 'Content-Type: application/json' \
+--header 'Authorization: developmenttoken'
 ```
 ---
 ## Gems
@@ -119,7 +126,3 @@ Normalmente, adicionamos ele ao `.gitignore` para que não suba arquivo desncess
 ## Docker
 Assim como no outro desafio (Ruby), não utilizei o Docker por possuir um conhecimento muito raso sobre o assunto.
 Poderia, sim, ter pesquisado para aplicar, mas optei por demonstrar o meu conhecimento já adquirido em desenvolvimento, não deixando de reconhecer o Docker como uma ferramenta extremamente poderosa e que facilita a vida da equipe de desenvolvimento como um todo.
-
-## Falta desenvolver
-Ainda falta informar o Token do usuário nas solicitações de transferência e verificação de saldo da conta (nos exemplos mencionados acima, nenhum deles exige o token do usuário).
-Creio eu que, concluindo esta etapa, o projeto estará finalizado.
