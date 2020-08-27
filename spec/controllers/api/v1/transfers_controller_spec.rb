@@ -73,9 +73,27 @@ RSpec.describe Api::V1::TransfersController, type: :controller do
     end
   end
 
+  context 'quando usuário não informa o token de APIs' do
+    it 'exibe mensagem de erro com erro de não autorizado' do
+      request.headers['Content-Type'] = 'application/json'
+      request.headers['Accept'] = 'application/json'
+
+      transfer_params = { source_id: 123, destiny_id: 456, amount: 5000 }
+
+      post :create,
+           params: transfer_params
+
+      message = 'Requisição não autenticada!'
+
+      expect(response.status).to eq(401)
+      expect(JSON.parse(response.body)['message']).to eq(message)
+    end
+  end
+
   def create_transfer_request(transfer_params)
     request.headers['Content-Type'] = 'application/json'
     request.headers['Accept'] = 'application/json'
+    request.headers['Authorization'] = 'testtoken'
 
     post :create,
          params: transfer_params

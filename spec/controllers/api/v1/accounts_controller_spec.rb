@@ -62,9 +62,31 @@ RSpec.describe Api::V1::AccountsController, type: :controller do
     end
   end
 
+  context 'quando usuário não informa o token de APIs' do
+    it 'exibe mensagem de erro com erro de não autorizado' do
+      request.headers['Content-Type'] = 'application/json'
+      request.headers['Accept'] = 'application/json'
+
+      account_params = {
+        account_number: 123,
+        account_name: 'Martinho da Vila',
+        initial_balance: 10_000
+      }
+
+      post :create,
+           params: account_params
+
+      message = 'Requisição não autenticada!'
+
+      expect(response.status).to eq(401)
+      expect(JSON.parse(response.body)['message']).to eq(message)
+    end
+  end
+
   def create_account_request(account_params)
     request.headers['Content-Type'] = 'application/json'
     request.headers['Accept'] = 'application/json'
+    request.headers['Authorization'] = 'testtoken'
 
     post :create,
          params: account_params

@@ -1,0 +1,10 @@
+default: &default
+  API_TOKEN: <%= ENV.fetch('API_TOKEN') %>
+
+development:
+  <<: *default
+  API_TOKEN: 'developmenttoken'
+
+test:
+  <<: *default
+  API_TOKEN: 'testtoken'

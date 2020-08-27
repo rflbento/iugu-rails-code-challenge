@@ -61,9 +61,27 @@ RSpec.describe Api::V1::BalancesController, type: :controller do
     end
   end
 
+  context 'quando usuário não informa o token de APIs' do
+    it 'exibe mensagem de erro com erro de não autorizado' do
+      request.headers['Content-Type'] = 'application/json'
+      request.headers['Accept'] = 'application/json'
+
+      account_number = { account_number: 123 }
+
+      get :index,
+          params: account_number
+
+      message = 'Requisição não autenticada!'
+
+      expect(response.status).to eq(401)
+      expect(JSON.parse(response.body)['message']).to eq(message)
+    end
+  end
+
   def create_balance_request(account_number)
     request.headers['Content-Type'] = 'application/json'
     request.headers['Accept'] = 'application/json'
+    request.headers['Authorization'] = 'testtoken'
 
     get :index,
         params: account_number
