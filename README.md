@@ -1,5 +1,5 @@
 # iugu-rails-code-challenge
-Este repositório foi criado para propor a solução do seguinte desafio: [Desafio Rails - IUGU](https://github.com/iugu/account_movement_challenge).
+Este repositório foi criado para propor a solução do seguinte desafio: [Desafio Rails - IUGU](https://github.com/iugu/accounting_challenge).
 
 ## <a name="tech_info"></a>Informações técnicas
 - Linguagem: Ruby (v 2.7.0)
