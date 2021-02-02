@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get '/accounts/:account_number/balance', to: 'balances#index', as: 'balance'
 
       resources :transfers, only: [:create]
+
+      resources :user_usages, only: [:index]
     end
   end
 end
